@@ -149,24 +149,26 @@ footer {
 /* Carousel Container */
 .carousel-container {
     position: relative;
-    width: 80%; /* The container width for the carousel */
+    width: 80%; /* Container width */
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Hide overflow */
+    overflow: hidden; /* Hide overflow to ensure smooth scrolling */
 }
 
+/* Carousel Slide */
 .carousel-slide {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Smooth sliding effect */
+    transition: transform 0.5s ease-in-out;
+    width: calc(100% + 20px); /* Add extra width to prevent cutting off the last card */
 }
 
 /* Cards */
 .card {
-    flex: 0 0 33.33%; /* Make each card take up one-third of the container */
+    flex: 0 0 33.33%; /* Three cards visible at once */
     box-sizing: border-box;
-    margin: 0 10px; /* Add some margin between the cards */
+    margin: 0 10px; /* Add margin between the cards */
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -174,13 +176,7 @@ footer {
     text-align: center;
 }
 
-.emoji {
-    font-size: 2em; /* Make the emoji twice the size of the header font */
-    margin-bottom: 15px;
-}
-
-
-/* Buttons for Carousel */
+/* Adjust Button Positioning */
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -195,15 +191,16 @@ footer {
     border-radius: 50%;
     background-color: #333;
     border: none;
-    z-index: 1000;
+    z-index: 1000; /* Ensure buttons are above the carousel content */
 }
 
+/* Move buttons closer to the carousel */
 .prev {
-    left: 10px;
+    left: -40px; /* Adjust positioning to ensure buttons are visible */
 }
 
 .next {
-    right: 10px;
+    right: -40px; /* Adjust positioning to ensure buttons are visible */
 }
 
 .prev:hover, .next:hover {
@@ -213,7 +210,19 @@ footer {
 /* Responsive Design: Adjust the number of cards on smaller screens */
 @media (max-width: 768px) {
     .card {
-        flex: 0 0 100%; /* On small screens, show only 1 card */
+        flex: 0 0 100%; /* Show only 1 card at a time on small screens */
+    }
+
+    .prev, .next {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        left: -30px;
+        right: -30px;
     }
 }
-/* Update the emoji size relative to the heading */
+
+.emoji {
+    font-size: 2em; /* Make the emoji twice the size of the header font */
+    margin-bottom: 15px;
+}

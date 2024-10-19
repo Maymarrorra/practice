@@ -3,12 +3,12 @@ const slides = document.querySelectorAll('.card');
 const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 const slideContainer = document.querySelector('.carousel-slide');
-const visibleSlides = 3; // Number of cards visible at once
+const visibleSlides = 3; // Number of visible slides
 
 // Calculate how much we need to move the slideContainer
 function showSlide(index) {
-    const slideWidth = slides[0].clientWidth + 20; // Width of one slide + margin (20px for both sides)
-    const maxIndex = slides.length - visibleSlides; // The max index we can slide to
+    const slideWidth = slides[0].clientWidth + 20; // Width of one slide + margin (10px on each side)
+    const maxIndex = slides.length - visibleSlides; // Maximum index we can slide to
     if (index > maxIndex) slideIndex = maxIndex;
     if (index < 0) slideIndex = 0;
     slideContainer.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
