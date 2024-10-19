@@ -3,23 +3,23 @@ const slides = document.querySelectorAll('.card');
 const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 
-// Ensure that each card is shown fully within the carousel container
+// Show the correct slide by translating each slide to the correct position
 function showSlide(index) {
     slides.forEach((slide, i) => {
-        // Position each slide by calculating its position based on index
+        // Position each slide based on the current slideIndex
         slide.style.transform = `translateX(${(i - index) * 100}%)`;
     });
 }
 
+// Move to the next slide
 function nextSlide() {
-    // Move to the next slide; wrap around if at the end
-    slideIndex = (slideIndex + 1) % slides.length;
+    slideIndex = (slideIndex + 1) % slides.length; // Wrap around if at the end
     showSlide(slideIndex);
 }
 
+// Move to the previous slide
 function prevSlide() {
-    // Move to the previous slide; wrap around if at the beginning
-    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length; // Wrap around if at the beginning
     showSlide(slideIndex);
 }
 
