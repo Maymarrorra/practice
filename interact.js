@@ -2,12 +2,12 @@ let slideIndex = 0;
 const slides = document.querySelectorAll('.card');
 const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
+const slideContainer = document.querySelector('.carousel-slide'); // Target the container
 
 // Ensure that each slide is properly positioned
 function showSlide(index) {
-    const slideWidth = slides[0].offsetWidth;
-    const container = document.querySelector('.carousel-slide');
-    container.style.transform = `translateX(-${index * slideWidth}px)`;
+    const slideWidth = slides[0].clientWidth; // Get the width of the first slide
+    slideContainer.style.transform = `translateX(-${index * slideWidth}px)`; // Shift the container
 }
 
 // Move to the next slide

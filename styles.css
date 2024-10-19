@@ -155,16 +155,16 @@ footer {
     justify-content: center;
 }
 
-/* Carousel Container */
+/* Carousel Slide */
 .carousel-slide {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%; /* The container will take the full width */
-    overflow: hidden; /* Ensure that only one slide is shown at a time */
+    display: flex; /* Lay out cards in a row */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
+    width: 100%; /* Container width */
+    overflow: hidden; /* Ensure that only one card is shown at a time */
 }
 
 .card {
-    min-width: 100%; /* Each card should take up the full width of the container */
+    min-width: 100%; /* Each card takes up the full width of the container */
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -172,6 +172,7 @@ footer {
     text-align: center;
     transition: transform 0.5s ease-in-out;
 }
+
 
 .emoji {
     font-size: 3em;
