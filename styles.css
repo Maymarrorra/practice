@@ -155,15 +155,16 @@ footer {
     justify-content: center;
 }
 
+/* Carousel Container */
 .carousel-slide {
     display: flex;
     transition: transform 0.5s ease;
-    width: 100%;
+    width: 100%; /* The container will take the full width */
+    overflow: hidden; /* Ensure that only one slide is shown at a time */
 }
 
-/* Cards */
 .card {
-    min-width: 100%; /* Ensure each card takes up the full width */
+    min-width: 100%; /* Each card should take up the full width of the container */
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
