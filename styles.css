@@ -146,83 +146,67 @@ footer {
     margin-bottom: 20px;
 }
 
+/* Carousel Container */
 .carousel-container {
     position: relative;
-    width: 80%;
+    width: 80%; /* The container width for the carousel */
     margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide overflow */
 }
 
-/* Carousel Slide */
 .carousel-slide {
-    display: flex; /* Lay out cards in a row */
-    transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
-    width: 100%; /* Container width */
-    overflow: hidden; /* Ensure that only one card is shown at a time */
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth sliding effect */
 }
 
+/* Cards */
 .card {
-    min-width: 100%; /* Each card takes up the full width of the container */
+    flex: 0 0 33.33%; /* Make each card take up one-third of the container */
+    box-sizing: border-box;
+    margin: 0 10px; /* Add some margin between the cards */
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
-    transition: transform 0.5s ease-in-out;
 }
 
-
-.emoji {
-    font-size: 3em;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 1em;
-    color: #555;
-}
-
+/* Buttons for Carousel */
 .prev, .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    width: 50px;      /* Fixed width */
-    height: 50px;     /* Fixed height */
+    width: 50px;
+    height: 50px;
     padding: 0;
-    margin-top: -25px;  /* Adjust for centering the button vertically */
+    margin-top: -25px; /* Center vertically */
     color: white;
     font-weight: bold;
-    font-size: 24px;   /* Bigger text inside the button */
-    transition: 0.6s ease;
-    border-radius: 50%; /* Makes the button perfectly circular */
-    background-color: #333; /* Button background color */
+    font-size: 24px;
+    border-radius: 50%;
+    background-color: #333;
     border: none;
+    z-index: 1000;
 }
 
 .prev {
-    left: 10px;  /* Position the "previous" button on the left */
+    left: 10px;
 }
 
 .next {
-    right: 10px;  /* Position the "next" button on the right */
+    right: 10px;
 }
 
 .prev:hover, .next:hover {
-    background-color: #4b0082; /* Change color on hover */
+    background-color: #4b0082;
 }
 
-/* Make sure buttons resize well on smaller screens */
+/* Responsive Design: Adjust the number of cards on smaller screens */
 @media (max-width: 768px) {
-    .prev, .next {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
+    .card {
+        flex: 0 0 100%; /* On small screens, show only 1 card */
     }
 }
