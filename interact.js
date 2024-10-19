@@ -7,8 +7,8 @@ const visibleSlides = 3; // Number of visible slides
 
 // Calculate how much we need to move the slideContainer
 function showSlide(index) {
-    const slideWidth = slides[0].clientWidth + 20; // Width of one slide + margin (10px on each side)
-    const maxIndex = slides.length - visibleSlides; // Maximum index we can slide to
+    const slideWidth = slides[0].clientWidth + 20; // Width of one slide + margin
+    const maxIndex = slides.length - visibleSlides; // Max index we can slide to
     if (index > maxIndex) slideIndex = maxIndex;
     if (index < 0) slideIndex = 0;
     slideContainer.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
@@ -17,12 +17,18 @@ function showSlide(index) {
 // Move to the next slide
 function nextSlide() {
     slideIndex++;
+    if (slideIndex >= slides.length - visibleSlides + 1) {
+        slideIndex = 0; // Reset to the first slide if we reach the end
+    }
     showSlide(slideIndex);
 }
 
 // Move to the previous slide
 function prevSlide() {
     slideIndex--;
+    if (slideIndex < 0) {
+        slideIndex = slides.length - visibleSlides; // Jump to the last group of slides
+    }
     showSlide(slideIndex);
 }
 
